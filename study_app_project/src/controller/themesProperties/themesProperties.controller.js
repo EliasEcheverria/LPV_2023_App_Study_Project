@@ -5,11 +5,11 @@ const ThemePropService = require("../../service/themesProperties.service");
 const listarProperties = async function (req, res) {
     console.log("listarPorperties en controller");
     try {
-        const property = await ThemePropService.listarProperty(req.query.property || '');
-        if (property && property[0]) {
+        const property = await ThemePropService.listarProperty(req.query);
+        if (property) {
             res.json({
                 success: true,
-                property: property[0]
+                property: property
             });
         } else {
             res.json({
@@ -29,7 +29,7 @@ const listarProperties = async function (req, res) {
 const buscarPorCodigoProperties = async function (req, res) {
     console.log("buscarPorCodigoProperties en controller");
     try {
-        const propertyModelResult = await ThemePropService.buscarPorCodigoProperty(req.params.id);
+        const propertyModelResult = await ThemePropService.buscarPorCodigoProperty(req.query.theme_id || '');
         if (propertyModelResult) {
             res.json({
                 success: true,
@@ -38,7 +38,7 @@ const buscarPorCodigoProperties = async function (req, res) {
         } else {
             res.json({
                 success: true,
-                property: null
+                property: []
             });
         }
     } catch (error) {

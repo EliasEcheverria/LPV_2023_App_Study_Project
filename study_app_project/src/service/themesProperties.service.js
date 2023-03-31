@@ -4,11 +4,7 @@ const { ThemePropModel } = require("../model/themesProperties.model");
 const listarProperty = async function (propertyBuscar) {
     console.log("listar temas");
     try {
-        const property = await sequelize.query(`SELECT * FROM themes_properties 
-                                                WHERE 1=1
-                                                AND UPPER(property_name)
-                                                LIKE UPPER ('%${propertyBuscar}%')
-                                                ORDER BY id`);
+        const property = await sequelize.query(`SELECT * FROM themes_properties`);
         if (property && property[0]) {
             return property[0];
         } else {
@@ -20,14 +16,15 @@ const listarProperty = async function (propertyBuscar) {
     }
 };
 
-const buscarPorCodigoProperty = async function (id) {
+const buscarPorCodigoProperty = async function (theme_id) {
     console.log("buscarPorCodigoProperty en service");
     try {
-        const propertyModelResult = await ThemePropModel.findByPk(id);
-        if (propertyModelResult) {
-            return propertyModelResult;
+        const propertyModelResult = await sequelize.query(`SELECT * FROM themes_properties 
+                                                            WHERE theme_id = ${theme_id}`);
+        if (propertyModelResult && propertyModelResult[0]) {
+            return propertyModelResult[0];
         } else {
-            return null;
+            return [];
         }
     } catch (error) {
         console.log(error);
