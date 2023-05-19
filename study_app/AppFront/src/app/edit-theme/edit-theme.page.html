@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="tema">
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        <ion-list>
+          <ion-item>
+            <ion-input label="Nombre" placeholder="Nombre del tema" [(ngModel)]="tema.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Descripción" placeholder="Descripción" [(ngModel)]="tema.description"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Palabras clave" placeholder="Palabras clave" [(ngModel)]="tema.keywords"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Id de usuario" placeholder="Id de usuario" [(ngModel)]="tema.owner_user_id"></ion-input>
+          </ion-item>
+        </ion-list>
+      </h2>
+    </ion-label>
+  </ion-item>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="saveTheme()">
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -6,7 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="usuario">
+<ion-content [fullscreen]="true" *ngIf="tema">
+  <!--
   <ion-item>
     <ion-icon aria-hidden="true" name="person-circle" color="primary"></ion-icon>
     <ion-label class="ion-text-wrap">
@@ -16,6 +17,19 @@
           <ion-item>{{ usuario.last_name }}</ion-item>
           <ion-item>{{ usuario.email }}</ion-item>
           <ion-item>{{ usuario.password }}</ion-item>
+        </ion-list>
+      </h2>
+    </ion-label>
+  </ion-item>-->
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        <ion-list>
+          <ion-item>{{ tema.create_date }}</ion-item>
+          <ion-item>{{ tema.name }}</ion-item>
+          <ion-item>{{ tema.description }}</ion-item>
+          <ion-item>{{ tema.keywords }}</ion-item>
+          <ion-item>{{ tema.owner_user_id }}</ion-item>
         </ion-list>
       </h2>
     </ion-label>

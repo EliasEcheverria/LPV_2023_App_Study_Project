@@ -6,14 +6,13 @@ import { DataService, Message } from '../services/data.service';
 import axios from 'axios';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-themes',
+  templateUrl: 'themes.page.html',
+  styleUrls: ['themes.page.scss'],
 })
-export class HomePage implements OnInit{
+export class ThemesPage implements OnInit{
   private data = inject(DataService);
 
-  usuarios: any = [];
   temas: any = [];
 
   constructor() {}
@@ -33,20 +32,7 @@ export class HomePage implements OnInit{
   }
 
   ionViewWillEnter(): void {
-    this.getUsers();
     this.getThemes();
-  }
-
-  getUsers(){
-    axios.get("http://localhost:3000/users/list").then(result => {
-      if (result.data.success == true){
-        this.usuarios = result.data.usuarios;
-      }else{
-        console.log(result.data.error);
-      }
-    }).catch(error => {
-      console.log(error.message);
-    })
   }
 
   getThemes(){
