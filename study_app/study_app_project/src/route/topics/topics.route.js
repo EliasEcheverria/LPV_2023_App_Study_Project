@@ -1,4 +1,5 @@
 const topicController = require("../../controller/topics/topics.controller");
+const authMiddleware = require('../../middleware/auth.controller');
 
 module.exports = function (app) {
     app.get("/topics/list", topicController.listarTopico);

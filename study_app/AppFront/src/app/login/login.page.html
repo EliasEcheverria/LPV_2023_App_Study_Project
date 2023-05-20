@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="usuario">
+  <ion-item>
+    
+    <ion-label class="ion-text-wrap">
+      <h2>
+        Elias Daniel Echeverria Gonzalez - 6672033<br/>
+        Login del Usuario
+        <ion-list>
+          <ion-item> 
+            <ion-input label="Email" placeholder="Email"[(ngModel)]= "usuario.email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" label="Contraseña" placeholder="Contraseña" [(ngModel)] = "usuario.password"></ion-input>
+          </ion-item>
+
+        </ion-list>
+        
+      </h2>
+    </ion-label>
+  </ion-item>
+  <ion-fab  slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click) ="loginUser()">
+      <ion-icon   name="bookmark-outline"></ion-icon>
+     
+    </ion-fab-button>
+    
+  </ion-fab>
+  
+</ion-content>

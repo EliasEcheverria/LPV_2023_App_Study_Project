@@ -1,4 +1,5 @@
 const themeController = require("../../controller/themes/themes.controller");
+const authMiddleware = require('../../middleware/auth.controller');
 
 module.exports = function (app) {
     app.get("/themes/list", themeController.listarThemes);

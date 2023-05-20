@@ -7,6 +7,14 @@ const routes: Routes = [
     loadChildren: () => import('./themes/themes.module').then( m => m.ThemesPageModule)
   },
   {
+    path: 'topics',
+    loadChildren: () => import('./topics/topics.module').then( m => m.TopicsPageModule)
+  },
+  {
+    path: 'message/:id',
+    loadChildren: () => import('./view-theme/view-theme.module').then( m => m.ViewThemePageModule)
+  },
+  {
     path: 'message/:id',
     loadChildren: () => import('./view-theme/view-theme.module').then( m => m.ViewThemePageModule)
   },
@@ -19,8 +27,12 @@ const routes: Routes = [
     loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
     path: '',
-    redirectTo: 'themes',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
 ];

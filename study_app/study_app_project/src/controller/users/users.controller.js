@@ -114,7 +114,8 @@ const login = async function(req, res){
                 avatar : user.avatar,
                 email : user.email 
             }, 'password');
-            const usersDBUpdate = await sequelize.query("UPDATE users SET token = '"+token+"' WHERE id = "+user.id)
+            const usersDBUpdate = await sequelize.query
+            ("UPDATE users SET token = '"+token+"' WHERE id = "+user.id)
             res.json({
                 success : true,
                 user
@@ -137,9 +138,11 @@ const login = async function(req, res){
 const logout = async function(req, res){
     try {
         console.log("Token: ", req.headers.authorization);
-        const usersDB = await sequelize.query("SELECT * FROM users WHERE token = '"+req.headers.authorization+"'");
+        const usersDB = await sequelize.query
+        ("SELECT * FROM users WHERE token = '"+req.headers.authorization+"'");
         console.log("users: ", usersDB);
-        const usersDBUpdate = await sequelize.query("UPDATE users SET token = null WHERE id = "+usersDB[0][0].id+"");
+        const usersDBUpdate = await sequelize.query
+        ("UPDATE users SET token = null WHERE id = "+usersDB[0][0].id+"");
         res.json({
             success : true
         });
