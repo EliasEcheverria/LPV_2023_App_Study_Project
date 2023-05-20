@@ -216,7 +216,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : 5,\r\n    \"create_date\" : \"2020-07-03 02:40:12\",\r\n    \"name\" : \"ocean\",\r\n    \"description\" : \"ocean\",\r\n    \"keywords\" : \"blue, deep, sea\",\r\n    \"owner_user_id\" : 1\r\n}",
+					"raw": "{\r\n    \"create_date\" : \"2022-10-05 05:30:47\",\r\n    \"name\" : \"Dark Blue\",\r\n    \"description\" : \"Official theme for new users\",\r\n    \"keywords\" : \"Blue, Dark, Themes\",\r\n    \"owner_user_id\" : 2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -375,6 +375,61 @@
 						"topics",
 						"delete",
 						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"dani69@gmail.com\",\r\n    \"password\" : \"5555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRGFuaWVsIiwibGFzdF9uYW1lIjoiR29uemFsZXoiLCJhdmF0YXIiOm51bGwsImVtYWlsIjoiZGFuaTY5QGdtYWlsLmNvbSIsImlhdCI6MTY4NDUzOTkwOH0.N6I835YPYu-tJQbNCzGgLTFIaVGWDc-2khexVYhujT8",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"logout"
 					]
 				}
 			},
